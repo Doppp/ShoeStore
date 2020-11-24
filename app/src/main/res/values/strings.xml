@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+    <string name="email_address_hint">Email Address</string>
+    <string name="login">Login</string>
+    <string name="password_hint">Password</string>
+    <string name="not_member_text">Not a member?</string>
+    <string name="sign_up_text"><u>Sign up now!</u></string>
+    <string name="title_text">Daryl\'s Shoe Store</string>
+    <string name="shoe_content_desc">shoe</string>
+    <string name="welcome_title_text">Hello!</string>
+    <string name="welcome_text">\nWelcome to Daryl\'s Shoe Store, the best shoe store in the world!
+    \n\nWe sell all kinds of shoes!
+    \n\nNike, Adidas, Converse, Manolo Blahnik, Jimmy Choo, Louboutin.
+    \n\nYou name it, we got it!\n\n</string>
+    <string name="instructions_title_text">Instructions</string>
+    <string name="instructions_text">\nThere are 2 views, the \"List\" screen and the \"Detail\" screen.
+    \n\nYou can see the list of available shoes on the \"List\" screen.
+    \n\nAdd new shoes on the \"Detail\" screen.
+    \n\nOnce added, you can see the new shoe in the \"List\" screen.
+    \n\nTap the \"Next\" button below to proceed to the shoe detail screen.\n\n</string>
+    <string name="welcome_button">Next - Instructions</string>
+    <string name="instructions_button_text">Next - List</string>
+    <string name="inventory_title_text">Inventory</string>
+    <string name="new_shoe_button_content_desc">Add new shoe</string>
+    <string name="logout_title">Logout</string>
+</resources>
