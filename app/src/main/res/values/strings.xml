@@ -23,4 +23,5 @@
     <string name="inventory_title_text">Inventory</string>
     <string name="new_shoe_button_content_desc">Add new shoe</string>
     <string name="logout_title">Logout</string>
+    <string name="logout_text">Logout</string>
 </resources>

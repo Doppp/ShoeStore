@@ -35,7 +35,7 @@ class ListViewModel : ViewModel() {
             "Converse's signature basketball sneakers for the filthy casual.",
             mutableListOf("Converse Chuck Taylor All-Stars")),
             Shoe("Hangisi", 7.0, "Manolo Blahnik",
-            "Turkish inspiration. Romantic and artistic. A pair of quality heels.",
+            "Turkish inspired. Romantic and artistic. A pair of quality heels.",
             mutableListOf("Manolo Blahnik Hangisi")),
             Shoe("Fetto", 8.0, "Jimmy Choo", "Star-studded and glamourous.",
             mutableListOf("Jimmy Choo Fetto")),

@@ -1,18 +1,18 @@
 package com.udacity.shoestore.screens.listing
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ListingFragmentBinding
-import kotlinx.android.synthetic.*
+import com.udacity.shoestore.databinding.ShoeViewBinding
 
 class ListingFragment : Fragment() {
 
@@ -31,13 +31,19 @@ class ListingFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
 
-        binding.listViewModel = viewModel
+        //binding.listViewModel = viewModel
         binding.setLifecycleOwner(this)
 
         // Set up LiveData observation relationship
-        viewModel.newShoe.observe(viewLifecycleOwner, Observer { shoe ->
-            shoe
+        viewModel.shoes.observe(viewLifecycleOwner, Observer { shoeList ->
+            shoeList.forEach { shoe ->
+                val shoeBinding: ShoeViewBinding = DataBindingUtil.inflate(inflater, R.layout.shoe_view, container, false)
+                shoeBinding.shoe = shoe
+                binding.shoeList.addView(shoeBinding.root)
+            }
         })
+
+        setHasOptionsMenu(true)
 
         // Floating action button listener
         binding.newShoeButton.setOnClickListener {
@@ -47,7 +53,17 @@ class ListingFragment : Fragment() {
         return binding.root
     }
 
-    private fun shoeAdded() {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.overflow_menu, menu)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item!!, view!!.findNavController())
+                || super.onOptionsItemSelected(item)
+    }
+
+    private fun logOut() {
+        findNavController().navigate(ListingFragmentDirections.actionListingToLogin())
     }
 }
