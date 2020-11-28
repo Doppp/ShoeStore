@@ -49,9 +49,15 @@ class ListViewModel : ViewModel() {
             Shoe("Pigalle", 8.0, "Christian Louboutin",
             "Elegant and timeless, an essential addition to every shoe lovers' collection",
             mutableListOf("Christian Louboutin Pigalle")),
-            Shoe("Pigalle", 8.0, "Christian Louboutin",
+            Shoe("Pigallddddde", 8.0, "Christian Louboutin",
             "Elegant and timeless, an essential addition to every shoe lovers' collection",
-            mutableListOf("Christian Louboutin Pigalle"))
+            mutableListOf("Christian Louboutin Pigalle")),
+            Shoe("Pigallddddde", 8.0, "Christian Louboutin",
+                "Elegant and timeless, an essential addition to every shoe lovers' collection",
+                mutableListOf("Christian Louboutin Pigalle")),
+            Shoe("Pigallddddde", 8.0, "Christian Louboutin",
+                "Elegant and timeless, an essential addition to every shoe lovers' collection",
+                mutableListOf("Christian Louboutin Pigalle"))
         )
     }
 }

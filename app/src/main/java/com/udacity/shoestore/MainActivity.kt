@@ -25,19 +25,9 @@ class MainActivity : AppCompatActivity() {
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
-        //NavigationUI.setupWithNavController(binding.navView, navController)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
+        appBarConfiguration = AppBarConfiguration.Builder(R.id.login_fragment, R.id.listing_fragment).build()
         setSupportActionBar(binding.toolbar)
         NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration)
-
-        /** prevent nav gesture if not on start destination
-        navController.addOnDestinationChangedListener { nc: NavController, nd: NavDestination, _: Bundle? ->
-            if (nd.id == nc.graph.startDestination) {
-                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
-            } else {
-                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
-            }
-        }**/
     }
 
     override fun onSupportNavigateUp(): Boolean {

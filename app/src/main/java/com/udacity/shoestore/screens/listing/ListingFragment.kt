@@ -59,6 +59,7 @@ class ListingFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        logOut()
         return NavigationUI.onNavDestinationSelected(item!!, view!!.findNavController())
                 || super.onOptionsItemSelected(item)
     }
