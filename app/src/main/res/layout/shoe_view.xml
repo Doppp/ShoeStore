@@ -23,6 +23,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/roboto"
             android:text="@{shoe.name}"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,7 +54,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/roboto"
             android:text="@{shoe.description}"
-            app:layout_constraintStart_toEndOf="@+id/shoe_name"
+            app:layout_constraintStart_toStartOf="@+id/shoe_name"
             app:layout_constraintTop_toBottomOf="@+id/shoe_name" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

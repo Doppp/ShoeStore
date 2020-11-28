@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         //NavigationUI.setupWithNavController(binding.navView, navController)
         appBarConfiguration = AppBarConfiguration(navController.graph)
+        setSupportActionBar(binding.toolbar)
         NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration)
 
         /** prevent nav gesture if not on start destination
