@@ -29,4 +29,15 @@
     <string name="instructions_fragment_label">Instructions</string>
     <string name="listing_fragment_label">Shoe Inventory</string>
     <string name="details_fragment_label">New Shoe</string>
+    <string name="new_shoe_title">Create New Shoe</string>
+    <string name="shoe_detail_name_label">Name</string>
+    <string name="shoe_detail_company_label">Company</string>
+    <string name="shoe_detail_size_label">Size</string>
+    <string name="shoe_detail_description_label">Description</string>
+    <string name="shoe_detail_name_hint">Enter shoe name</string>
+    <string name="shoe_detail_company_hint">Enter company name</string>
+    <string name="shoe_detail_size_hint">Enter size</string>
+    <string name="save_button_label">Save</string>
+    <string name="enter_shoe_description">Enter shoe description</string>
+    <string name="cancel_button_label">Cancel</string>
 </resources>

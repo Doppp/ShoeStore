@@ -13,6 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ListingFragmentBinding
 import com.udacity.shoestore.databinding.ShoeViewBinding
+import com.udacity.shoestore.models.Shoe
 
 class ListingFragment : Fragment() {
 
@@ -47,6 +48,7 @@ class ListingFragment : Fragment() {
 
         // Floating action button listener
         binding.newShoeButton.setOnClickListener {
+            viewModel.newShoe()
             findNavController().navigate(ListingFragmentDirections.actionListingToDetails())
         }
 

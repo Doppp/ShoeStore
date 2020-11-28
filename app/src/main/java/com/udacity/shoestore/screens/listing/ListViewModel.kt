@@ -27,6 +27,10 @@ class ListViewModel : ViewModel() {
         _shoes.value?.add(shoe)
     }
 
+    fun newShoe() {
+        shoe = Shoe("", 0.0, "","")
+    }
+
     /**
      * Initializes the list of shoes i.e. initial stock of shoes in inventory
      */
