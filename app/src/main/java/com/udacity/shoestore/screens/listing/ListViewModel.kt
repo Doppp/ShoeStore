@@ -7,23 +7,30 @@ import com.udacity.shoestore.models.Shoe
 
 class ListViewModel : ViewModel() {
 
+    // Global shoe variable
+    var shoe: Shoe? = null
+
     // The current inventory of shoes
-    private var _shoes = MutableLiveData<Collection<Shoe>>()
-    val shoes: LiveData<Collection<Shoe>>
+    private var _shoes = MutableLiveData<MutableList<Shoe?>>()
+    val shoes: LiveData<MutableList<Shoe?>>
         get() = _shoes
 
-    private val _newShoe = MutableLiveData<Shoe>()
-    val newShoe: LiveData<Shoe>
-        get() = _newShoe
+    private val _returnToList = MutableLiveData<Boolean>()
+    val returnToList: LiveData<Boolean>
+        get() = _returnToList
 
     init {
         _shoes.value = shoeList()
     }
 
+    fun addShoe() {
+        _shoes.value?.add(shoe)
+    }
+
     /**
      * Initializes the list of shoes i.e. initial stock of shoes in inventory
      */
-    private fun shoeList() : Collection<Shoe> {
+    private fun shoeList() : MutableList<Shoe?> {
         return mutableListOf(
             Shoe("Air Jordan", 8.5, "Nike",
             "The classic produced for basketball legend Michael Jordan.",

@@ -24,4 +24,9 @@
     <string name="new_shoe_button_content_desc">Add new shoe</string>
     <string name="logout_title">Logout</string>
     <string name="logout_text">Logout</string>
+    <string name="login_fragment_label">Login</string>
+    <string name="welcome_fragment_label">Welcome</string>
+    <string name="instructions_fragment_label">Instructions</string>
+    <string name="listing_fragment_label">Shoe Inventory</string>
+    <string name="details_fragment_label">New Shoe</string>
 </resources>
