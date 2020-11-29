@@ -1,10 +1,10 @@
 package com.udacity.shoestore.screens.listing
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.udacity.shoestore.models.Shoe
-import timber.log.Timber
 
 class ListViewModel : ViewModel() {
 
@@ -32,10 +32,18 @@ class ListViewModel : ViewModel() {
     }
 
     fun addShoe() {
-        Timber.i("addShoe called")
+        //Log.d("myTag", "init Shoe")
         _shoeList.value?.add(shoe.value!!)
         _shoes.value = _shoeList.value
         _returnToList.value = true
+    }
+
+    fun resetReturnToList() {
+        _returnToList.value = false
+        _shoe.value?.name = ""
+        _shoe.value?.size = 0.0
+        _shoe.value?.company = ""
+        _shoe.value?.description = ""
     }
 
     /**

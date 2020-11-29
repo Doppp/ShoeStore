@@ -1,6 +1,7 @@
 package com.udacity.shoestore.screens.listing
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.LinearLayout
 import android.widget.TextView

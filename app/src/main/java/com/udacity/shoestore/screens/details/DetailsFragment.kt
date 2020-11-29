@@ -35,4 +35,9 @@ class DetailsFragment : Fragment() {
 
         return binding.root
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        shoes.resetReturnToList()
+    }
 }
