@@ -33,7 +33,11 @@ class ListViewModel : ViewModel() {
 
     fun addShoe() {
         //Log.d("myTag", "init Shoe")
-        _shoeList.value?.add(shoe.value!!)
+        Log.d("myTag", "Name: ${shoe.value!!.name}")
+        Log.d("myTag", "Size: ${shoe.value!!.size}")
+        Log.d("myTag", "Company: ${shoe.value!!.company}")
+        Log.d("myTag", "Description: ${shoe.value!!.description}")
+        _shoeList.value?.add(_shoe.value!!)
         _shoes.value = _shoeList.value
         _returnToList.value = true
     }
