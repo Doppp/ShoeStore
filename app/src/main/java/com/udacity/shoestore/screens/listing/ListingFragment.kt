@@ -2,6 +2,8 @@ package com.udacity.shoestore.screens.listing
 
 import android.os.Bundle
 import android.view.*
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -9,11 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ListingFragmentBinding
-import com.udacity.shoestore.databinding.ShoeViewBinding
-import com.udacity.shoestore.models.Shoe
 
 class ListingFragment : Fragment() {
 
@@ -37,10 +36,20 @@ class ListingFragment : Fragment() {
 
         // Set up LiveData observation relationship
         viewModel.shoes.observe(viewLifecycleOwner, Observer { shoeList ->
+            var linearLayout: LinearLayout = binding.shoeList.findViewById(R.id.shoe_list)
             shoeList.forEach { shoe ->
-                val shoeBinding: ShoeViewBinding = DataBindingUtil.inflate(inflater, R.layout.shoe_view, container, false)
-                shoeBinding.shoe = shoe
-                binding.shoeList.addView(shoeBinding.root)
+                val view: View = layoutInflater.inflate(R.layout.shoe_view, null)
+                val shoeNameTextView: TextView = view.findViewById(R.id.shoe_name)
+                val shoeSizeTextView: TextView = view.findViewById(R.id.size)
+                val shoeCompanyTextView: TextView = view.findViewById(R.id.company_name)
+                val shoeDescriptionTextView: TextView = view.findViewById(R.id.shoe_description)
+
+                shoeNameTextView.text = shoe.name
+                shoeSizeTextView.text = shoe.size.toString()
+                shoeCompanyTextView.text = shoe.company
+                shoeDescriptionTextView.text = shoe.description
+
+                linearLayout.addView(view)
             }
         })
 
@@ -48,7 +57,6 @@ class ListingFragment : Fragment() {
 
         // Floating action button listener
         binding.newShoeButton.setOnClickListener {
-            viewModel.newShoe()
             findNavController().navigate(ListingFragmentDirections.actionListingToDetails())
         }
 
