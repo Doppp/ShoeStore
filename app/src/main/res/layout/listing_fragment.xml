@@ -21,7 +21,7 @@
 
             android:id="@+id/scroll_view_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:fillViewport="true"
             app:layout_constraintBottom_toTopOf="@+id/new_shoe_button"
             app:layout_constraintTop_toBottomOf="@id/inventory_title">
@@ -30,7 +30,6 @@
                 android:id="@+id/shoe_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top"
                 android:orientation="vertical">
 
             </LinearLayout>

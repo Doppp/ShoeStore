@@ -7,6 +7,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -14,10 +15,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ListingFragmentBinding
+import kotlinx.android.synthetic.main.shoe_view.view.*
 
 class ListingFragment : Fragment() {
 
-    private lateinit var viewModel: ListViewModel
+    private val viewModel by activityViewModels<ListViewModel>()
 
     private lateinit var binding: ListingFragmentBinding
 
@@ -30,27 +32,18 @@ class ListingFragment : Fragment() {
             false
         )
 
-        viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
-
-        //binding.listViewModel = viewModel
         binding.setLifecycleOwner(this)
 
         // Set up LiveData observation relationship
         viewModel.shoes.observe(viewLifecycleOwner, Observer { shoeList ->
-            var linearLayout: LinearLayout = binding.shoeList.findViewById(R.id.shoe_list)
             shoeList.forEach { shoe ->
-                val view: View = layoutInflater.inflate(R.layout.shoe_view, null)
-                val shoeNameTextView: TextView = view.findViewById(R.id.shoe_name)
-                val shoeSizeTextView: TextView = view.findViewById(R.id.size)
-                val shoeCompanyTextView: TextView = view.findViewById(R.id.company_name)
-                val shoeDescriptionTextView: TextView = view.findViewById(R.id.shoe_description)
+                val view: View = inflater.inflate(R.layout.shoe_view, binding.shoeList, false)
+                view.shoe_name.text = shoe.name
+                view.size.text = shoe.size.toString()
+                view.company_name.text = shoe.company
+                view.shoe_description.text = shoe.description
 
-                shoeNameTextView.text = shoe.name
-                shoeSizeTextView.text = shoe.size.toString()
-                shoeCompanyTextView.text = shoe.company
-                shoeDescriptionTextView.text = shoe.description
-
-                linearLayout.addView(view)
+                binding.shoeList.addView(view)
             }
         })
 

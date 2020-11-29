@@ -26,17 +26,12 @@ class ListViewModel : ViewModel() {
 
     init {
         _shoe.value = Shoe("", 0.0, "","")
-        _shoeList.value = mutableListOf()
+        _shoeList.value = shoeList()
         _shoes.value = shoeList()
         _returnToList.value = false
     }
 
     fun addShoe() {
-        //Log.d("myTag", "init Shoe")
-        Log.d("myTag", "Name: ${shoe.value!!.name}")
-        Log.d("myTag", "Size: ${shoe.value!!.size}")
-        Log.d("myTag", "Company: ${shoe.value!!.company}")
-        Log.d("myTag", "Description: ${shoe.value!!.description}")
         _shoeList.value?.add(_shoe.value!!)
         _shoes.value = _shoeList.value
         _returnToList.value = true
@@ -71,16 +66,7 @@ class ListViewModel : ViewModel() {
             mutableListOf("Jimmy Choo Fetto")),
             Shoe("Pigalle", 8.0, "Christian Louboutin",
             "Elegant and timeless, an essential addition to every shoe lovers' collection",
-            mutableListOf("Christian Louboutin Pigalle")),
-            Shoe("Pigallddddde", 8.0, "Christian Louboutin",
-            "Elegant and timeless, an essential addition to every shoe lovers' collection",
-            mutableListOf("Christian Louboutin Pigalle")),
-            Shoe("Pigallddddde", 8.0, "Christian Louboutin",
-                "Elegant and timeless, an essential addition to every shoe lovers' collection",
-                mutableListOf("Christian Louboutin Pigalle")),
-            Shoe("Pigallddddde", 8.0, "Christian Louboutin",
-                "Elegant and timeless, an essential addition to every shoe lovers' collection",
-                mutableListOf("Christian Louboutin Pigalle"))
+            mutableListOf("Christian Louboutin Pigalle"))
         )
     }
 }
