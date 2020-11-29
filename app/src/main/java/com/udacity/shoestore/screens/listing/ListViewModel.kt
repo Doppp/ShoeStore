@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.udacity.shoestore.models.Shoe
+import timber.log.Timber
 
 class ListViewModel : ViewModel() {
 
@@ -24,7 +25,11 @@ class ListViewModel : ViewModel() {
     }
 
     fun addShoe() {
-        _shoes.value?.add(shoe)
+        shoe?.let { shoe ->
+            Timber.i("addShoe called")
+            _shoes.value?.add(shoe)
+            _returnToList.value = true
+        }
     }
 
     fun newShoe() {
