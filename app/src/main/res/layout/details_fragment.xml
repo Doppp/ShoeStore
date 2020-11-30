@@ -10,6 +10,7 @@
             type="com.udacity.shoestore.screens.listing.ListViewModel" />
     </data>
 
+    <!-- This is a complicated layout so we are using ConstraintLayout for this -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
