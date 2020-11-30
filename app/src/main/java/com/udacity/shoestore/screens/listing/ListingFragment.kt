@@ -1,20 +1,17 @@
 package com.udacity.shoestore.screens.listing
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ListingFragmentBinding
+import com.udacity.shoestore.databinding.ShoeViewBinding
 import kotlinx.android.synthetic.main.shoe_view.view.*
 
 class ListingFragment : Fragment() {
@@ -32,12 +29,10 @@ class ListingFragment : Fragment() {
             false
         )
 
-        binding.setLifecycleOwner(this)
-
         // Set up LiveData observation relationship
         viewModel.shoes.observe(viewLifecycleOwner, Observer { shoeList ->
             shoeList.forEach { shoe ->
-                val view: View = inflater.inflate(R.layout.shoe_view, binding.shoeList, false)
+                val view: View = inflater.inflate(R.layout.shoe_view, null, false)
                 view.shoe_name.text = shoe.name
                 view.size.text = shoe.size.toString()
                 view.company_name.text = shoe.company
